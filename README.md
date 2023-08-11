@@ -1,6 +1,4 @@
 # Katnapped
-Katknapped: Saving the missing Koobies The malevolent King Mochii has captured the friendly Koobies and twisted them into darkness. Our mission: to restore their goodness and halt his sinister plans!
-
 Project Title: Katknapped: Saving the missing Koobies 
  
 Brief Project idea:  The malevolent King Mochii has captured the friendly Koobies and twisted them into darkness. Our mission: to restore their goodness and halt his sinister plans!
