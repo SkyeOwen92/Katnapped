@@ -4,27 +4,22 @@ using UnityEngine;
 
 public class EnemyProjectiles : MonoBehaviour
 {
-    public string element; 
+    private string element; 
     float attack;
-    bool collided = false; 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player" && collided == false)
+        if (other.gameObject.tag == "Player")
         {
-            string pType = collision.gameObject.GetComponent<PlayerStats>().type;
-            float typeMulti = TypeMultiplier(pType, element);
-            float e_attack = gameObject.GetComponentInParent<Enemy>().attack;
+            Enemy parent = this.transform.parent.gameObject.GetComponent<Enemy>();
+            PlayerStats player = other.gameObject.transform.parent.GetComponent<PlayerStats>();
+            float typeMulti = TypeMultiplier(player.type, parent.type);
+            float e_attack = parent.attack;
             attack = e_attack * typeMulti;
-            float p_hp = collision.gameObject.GetComponent<PlayerStats>().health;
-            if(p_hp >= 0) 
+            player.health -= attack;
+            if(player.health >= 0) 
             {
-                collision.gameObject.GetComponent<PlayerMovement>().Die();
-            }    
-            collided = true;
-            Destroy(gameObject);
-        }
-        else if ( collided == true )
-        {
+                player.Die();
+            }
             Destroy(gameObject);
         }
     }

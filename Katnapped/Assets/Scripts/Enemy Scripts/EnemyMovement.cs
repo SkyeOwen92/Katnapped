@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI; //AI for enemies 
 using Random = UnityEngine.Random;
 
-public class NewBehaviourScript : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform player;
@@ -82,15 +82,17 @@ public class NewBehaviourScript : MonoBehaviour
 
         if( !alreadyAttacked )
         {
-            Rigidbody rb = Instantiate(projectile,transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Transform spawnPoint = gameObject.transform.Find("EnemyMagicSpawnPoint");
+            GameObject magic = Instantiate(projectile, spawnPoint.transform.position, spawnPoint.transform.rotation, this.transform) as GameObject;
+            Rigidbody rb = magic.GetComponent<Rigidbody>(); 
             //make a lobbed attack
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up *8f, ForceMode.Impulse);
-            
+            rb.AddForce(transform.forward * 20, ForceMode.Impulse);
+            rb.AddForce(transform.up * 15, ForceMode.Impulse);
             //player takes damage if hit on projectile script. 
 
             //wait to attack again
             alreadyAttacked = true;
+            Destroy(magic, 0.5f);
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }

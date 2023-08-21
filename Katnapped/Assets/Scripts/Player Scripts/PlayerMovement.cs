@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private void Start()
     {  
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponentInChildren<Rigidbody>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
         inputActions = new Controls();
@@ -61,9 +61,5 @@ public class PlayerMovement : MonoBehaviour
     private void Sprint_started(InputAction.CallbackContext obj)
     {
         moveSpeed += 10;
-    }
-    public void Die()
-    {
-
     }
 }

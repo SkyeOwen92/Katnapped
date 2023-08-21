@@ -151,8 +151,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""576abce4-52f5-4b1d-884c-0305dc1b5184"",
-                    ""path"": ""<Keyboard>/rightShift"",
+                    ""id"": ""db6f9e04-7be7-4a0b-9fea-37340af0e1f2"",
+                    ""path"": ""<SwitchProControllerHID>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -162,8 +162,8 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""db6f9e04-7be7-4a0b-9fea-37340af0e1f2"",
-                    ""path"": ""<SwitchProControllerHID>/leftStickPress"",
+                    ""id"": ""e7cda08f-66a4-4fc8-ad41-78b4c9b837e5"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -185,7 +185,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fd5155d0-e551-416f-acf9-cfe1c8e4fced"",
-                    ""path"": ""<SwitchProControllerHID>/buttonWest"",
+                    ""path"": ""<SwitchProControllerHID>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -218,7 +218,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""39d1b180-db75-4801-bfbf-77490cd5094b"",
-                    ""path"": ""<SwitchProControllerHID>/buttonEast"",
+                    ""path"": ""<SwitchProControllerHID>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -240,7 +240,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""498fa9fc-77b9-452b-b502-fec2945f471e"",
-                    ""path"": ""<Keyboard>/enter"",
+                    ""path"": ""<Keyboard>/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

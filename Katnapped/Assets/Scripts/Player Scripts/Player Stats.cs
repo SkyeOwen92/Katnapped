@@ -12,4 +12,8 @@ public class PlayerStats : MonoBehaviour
     public float defense;
     public float speed;
     
+    public void Die()
+    {
+
+    }
 }
