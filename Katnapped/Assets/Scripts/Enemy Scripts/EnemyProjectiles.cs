@@ -20,6 +20,7 @@ public class EnemyProjectiles : MonoBehaviour
                 float e_attack = parent.attack;
                 attack = e_attack * typeMulti;
                 player.health -= attack;
+               GameObject.Find("Canvas").GetComponent<CanvasController>().UpdateHealth(player.health);
                 if (player.health <= 0)
                 {
                     player.Die();
