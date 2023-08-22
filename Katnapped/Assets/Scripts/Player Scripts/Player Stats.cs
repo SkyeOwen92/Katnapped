@@ -11,9 +11,23 @@ public class PlayerStats : MonoBehaviour
     public int MP; 
     public float defense;
     public float speed;
-    
+    public bool isHit;
+    private Animator animator;
     public void Die()
     {
-
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("Death");
+        this.GetComponent<Player_Movement>().enabled = false;
+        GameObject canvas = GameObject.Find("Canvas");
+        int lives = canvas.GetComponent<CanvasController>().lives;
+        if(lives > 0 )
+        {
+            canvas.GetComponent<CanvasController>().RunRespawn();
+        }
+        else
+        {
+            canvas.GetComponent<CanvasController>().undoDontDestroy();
+            FindObjectOfType<MainMenu>().GameOver(); 
+        }
     }
 }

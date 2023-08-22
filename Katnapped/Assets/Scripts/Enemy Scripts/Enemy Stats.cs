@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public float health;
     public float defense;
     public float speed;
-    public bool isHit = false; 
+    public bool isHit = false;
 
     public void TakeDamage(float damage)
     {
@@ -24,7 +24,6 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-
         Destroy(gameObject);
     }
 }

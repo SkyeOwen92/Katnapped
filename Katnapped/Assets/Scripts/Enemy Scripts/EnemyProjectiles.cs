@@ -6,21 +6,26 @@ public class EnemyProjectiles : MonoBehaviour
 {
     private string element; 
     float attack;
+    PlayerStats player; 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Enemy parent = this.transform.parent.gameObject.GetComponent<Enemy>();
-            PlayerStats player = other.gameObject.transform.parent.GetComponent<PlayerStats>();
-            float typeMulti = TypeMultiplier(player.type, parent.type);
-            float e_attack = parent.attack;
-            attack = e_attack * typeMulti;
-            player.health -= attack;
-            if(player.health >= 0) 
+            player = other.gameObject.transform.parent.GetComponent<PlayerStats>();
+            if (!player.isHit)
             {
-                player.Die();
+                player.isHit = true;
+                Enemy parent = this.transform.parent.gameObject.GetComponent<Enemy>();
+                float typeMulti = TypeMultiplier(player.type, parent.type);
+                float e_attack = parent.attack;
+                attack = e_attack * typeMulti;
+                player.health -= attack;
+                if (player.health <= 0)
+                {
+                    player.Die();
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
     private float TypeMultiplier(string p_type, string e_type)

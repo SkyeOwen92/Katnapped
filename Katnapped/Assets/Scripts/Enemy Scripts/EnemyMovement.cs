@@ -20,7 +20,8 @@ public class EnemyMovement : MonoBehaviour
     //attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked = false;
-    public GameObject projectile; 
+    public GameObject projectile;
+    public Transform spawnPoint;
 
     //states
     public float sightRange;
@@ -77,17 +78,17 @@ public class EnemyMovement : MonoBehaviour
     }
     private void Attack()
     {
+        player.gameObject.GetComponent<PlayerStats>().isHit = false;
         agent.SetDestination(transform.position);
         transform.LookAt(player);
 
         if( !alreadyAttacked )
         {
-            Transform spawnPoint = gameObject.transform.Find("EnemyMagicSpawnPoint");
-            GameObject magic = Instantiate(projectile, spawnPoint.transform.position, spawnPoint.transform.rotation, this.transform) as GameObject;
+            GameObject magic = Instantiate(projectile, spawnPoint.transform.position, Quaternion.identity, this.transform) as GameObject;
             Rigidbody rb = magic.GetComponent<Rigidbody>(); 
             //make a lobbed attack
-            rb.AddForce(transform.forward * 20, ForceMode.Impulse);
-            rb.AddForce(transform.up * 15, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 35, ForceMode.Impulse);
+            rb.AddForce(transform.up * 20, ForceMode.Impulse);
             //player takes damage if hit on projectile script. 
 
             //wait to attack again

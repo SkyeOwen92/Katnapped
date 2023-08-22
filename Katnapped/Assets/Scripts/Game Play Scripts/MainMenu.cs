@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    bool gameHasEnded = false;
     public void PlayGame()
     {
         SceneManager.LoadScene("lvl1");
@@ -17,5 +18,12 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("HowToPlay");
     }
-
+    public void GameOver()
+    {
+        if (!gameHasEnded)
+        {
+            gameHasEnded = true;
+            SceneManager.LoadScene("GameOver");
+        }
+    }
 }

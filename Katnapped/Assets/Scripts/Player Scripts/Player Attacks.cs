@@ -33,9 +33,9 @@ public class PlayerAttacks : MonoBehaviour
     }
     IEnumerator Attack()
     {
-        animator.SetBool("attackPressed", true);
-        yield return new WaitForSeconds(0.5f);
-        animator.SetBool("attackPressed", false);
+        animator.SetTrigger("attackPressed");
+        yield return new WaitForSeconds(1f);
+        animator.SetTrigger("attackEnded");
     }
     IEnumerator doMagic()
     {
