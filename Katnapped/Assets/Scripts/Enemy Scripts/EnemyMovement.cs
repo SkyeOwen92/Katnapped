@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
     public GameObject projectile;
     public Transform spawnPoint;
 
-    //states
+    //chasing
     public float sightRange;
     public float attackRange;
     public bool playerInSightRange = false;
